@@ -1,4 +1,4 @@
-module ResourceController
+module SimpleCrudify
   module CrudifyDynamicResource
     def create
       @resource = model_klass.new(resource_params)
