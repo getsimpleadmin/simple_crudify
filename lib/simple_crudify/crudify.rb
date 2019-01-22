@@ -10,7 +10,7 @@ module SimpleCrudify
       edit:    CrudActions::Edit,
       update:  CrudActions::Update,
       destroy: CrudActions::Destroy
-    }
+    }.freeze
 
     def self.included(base)
       base.extend(ClassMethods)
@@ -19,12 +19,12 @@ module SimpleCrudify
     module ClassMethods
       private
 
-        def crud_actions(*actions)
-          if actions.include?(:crud)
-            DEPENDENCIES_MAP.values.each { |action| self.include(action) }
+        def actions(*action_names)
+          if action_names.include?(:crud)
+            DEPENDENCIES_MAP.values.each { |action| include(action) }
           else
-            actions.each do |action|
-              self.include(DEPENDENCIES_MAP[action])
+            action_names.each do |action|
+              include(DEPENDENCIES_MAP[action])
             end
           end
         end
