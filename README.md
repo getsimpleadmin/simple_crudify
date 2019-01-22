@@ -27,7 +27,7 @@ A short example
 class UsersController < ApplicationController
   include SimpleCrudify::Crudify
 
-  crud_actions :crud
+  actions :crud
 
   def model_klass
     User
@@ -58,8 +58,8 @@ end
 The first required configuration is an action name.
 
 ```ruby
-crud_actions :index, :show, :new, :create
-crud_actions :crud # an alias for all actions
+actions :index, :show, :new, :create
+actions :crud # an alias for all actions
 ```
 
 Other settings
