@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     User
   end
 
+  def controller_notice(_action_name)
+    t("resource.#{action_name}.success", resource_name: model_klass.model_name.element.capitalize)
+  end
+
   private
 
     def after_create_path
@@ -71,6 +75,14 @@ end
 ```
 
 Allow specifying the model class.
+
+```ruby
+  def controller_notice(_action_name)
+    t("resource.#{action_name}.success", resource_name: model_klass.model_name.element.capitalize)
+  end
+```
+
+Helps to simplify controller redirect notice
 
 ## Contributing
 
