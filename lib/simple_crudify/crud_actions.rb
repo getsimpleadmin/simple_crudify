@@ -29,7 +29,7 @@ module SimpleCrudify
         @resource = model_klass.new(resource_params)
 
         if @resource.save
-          redirect_to after_create_path
+          redirect_to after_create_path, notice: controller_notice(action_name)
         else
           render template: template_path(:new)
         end
@@ -49,7 +49,7 @@ module SimpleCrudify
         @resource = model_klass.find(params[:id])
 
         if @resource.update(resource_params)
-          redirect_to after_update_path
+          redirect_to after_update_path, notice: controller_notice(action_name)
         else
           render template: template_path(:edit)
         end
@@ -61,7 +61,7 @@ module SimpleCrudify
         @resource = model_klass.find(params[:id])
         @resource.destroy
 
-        redirect_to after_destroy_path
+        redirect_to after_destroy_path, notice: controller_notice(action_name)
       end
     end
   end

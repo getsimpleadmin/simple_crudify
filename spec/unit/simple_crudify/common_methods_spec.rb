@@ -8,8 +8,11 @@ RSpec.describe SimpleCrudify::CrudActions do
     Class.new do
       class << self
         def resource_params; end
+
         def render(template_path); end
+
         def template_path(options={}); end
+
         def redirect_to(path); end
 
         def model_klass
@@ -25,7 +28,7 @@ RSpec.describe SimpleCrudify::CrudActions do
 
   before do
     class Model
-      def new(params={})
+      def new(_params={})
         self
       end
 

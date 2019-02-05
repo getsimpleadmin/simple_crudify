@@ -2,6 +2,10 @@ module SimpleCrudify
   module CommonMethods
     private
 
+      def controller_notice(_action_name)
+        raise NotImplementedError
+      end
+
       def resource_params
         raise NotImplementedError
       end
