@@ -10,7 +10,11 @@ module SimpleCrudify
 
     module Show
       def show
-        @resource = model_klass.find(params[:id])
+        if defined?(FriendlyId)
+          @resource = model_klass.friendly.find(params[:id])
+        else
+          @resource = model_klass.find(params[:id])
+        end
 
         render template_path
       end
@@ -38,7 +42,11 @@ module SimpleCrudify
 
     module Edit
       def edit
-        @resource = model_klass.find(params[:id])
+        if defined?(FriendlyId)
+          @resource = model_klass.friendly.find(params[:id])
+        else
+          @resource = model_klass.find(params[:id])
+        end
 
         render template_path
       end
@@ -46,7 +54,11 @@ module SimpleCrudify
 
     module Update
       def update
-        @resource = model_klass.find(params[:id])
+        if defined?(FriendlyId)
+          @resource = model_klass.friendly.find(params[:id])
+        else
+          @resource = model_klass.find(params[:id])
+        end
 
         if @resource.update(resource_params)
           redirect_to after_update_path, notice: controller_notice(action_name)
@@ -58,7 +70,12 @@ module SimpleCrudify
 
     module Destroy
       def destroy
-        @resource = model_klass.find(params[:id])
+        if defined?(FriendlyId)
+          @resource = model_klass.friendly.find(params[:id])
+        else
+          @resource = model_klass.find(params[:id])
+        end
+
         @resource.destroy
 
         redirect_to after_destroy_path, notice: controller_notice(action_name)
