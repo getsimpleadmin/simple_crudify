@@ -11,7 +11,7 @@ module SimpleCrudify
     module Show
       def show
         if defined?(FriendlyId)
-          @resource = model_klass.friendly.find(params[:id])
+          @resource = model_klass.friendly.find_by_friendly_id(params[:id])
         else
           @resource = model_klass.find(params[:id])
         end
@@ -43,7 +43,7 @@ module SimpleCrudify
     module Edit
       def edit
         if defined?(FriendlyId)
-          @resource = model_klass.friendly.find(params[:id])
+          @resource = model_klass.friendly.find_by_friendly_id(params[:id])
         else
           @resource = model_klass.find(params[:id])
         end
@@ -55,7 +55,7 @@ module SimpleCrudify
     module Update
       def update
         if defined?(FriendlyId)
-          @resource = model_klass.friendly.find(params[:id])
+          @resource = model_klass.friendly.find_by_friendly_id(params[:id])
         else
           @resource = model_klass.find(params[:id])
         end
@@ -71,7 +71,7 @@ module SimpleCrudify
     module Destroy
       def destroy
         if defined?(FriendlyId)
-          @resource = model_klass.friendly.find(params[:id])
+          @resource = model_klass.friendly.find_by_friendly_id(params[:id])
         else
           @resource = model_klass.find(params[:id])
         end
