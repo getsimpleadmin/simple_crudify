@@ -103,8 +103,11 @@ RSpec.describe SimpleCrudify::CrudActions do
         before { allow_any_instance_of(Model).to receive(:save).and_return(true) }
         before { allow(controller_klass).to receive(:after_create_path).and_return(path) }
 
+        before { allow(controller_klass).to receive(:action_name).and_return(:destroy) }
+        before { allow(controller_klass).to receive(:controller_notice).and_return(nil) }
+
         it 'redirects to after_create_path' do
-          expect(controller_klass).to receive(:redirect_to).with(path)
+          expect(controller_klass).to receive(:redirect_to).with(path, notice: nil)
 
           subject
         end
@@ -154,8 +157,11 @@ RSpec.describe SimpleCrudify::CrudActions do
         before { allow_any_instance_of(Model).to receive(:update).and_return(true) }
         before { allow(controller_klass).to receive(:after_update_path).and_return(path) }
 
+        before { allow(controller_klass).to receive(:action_name).and_return(:destroy) }
+        before { allow(controller_klass).to receive(:controller_notice).and_return(nil) }
+
         it 'redirects to after_update_path' do
-          expect(controller_klass).to receive(:redirect_to).with(path)
+          expect(controller_klass).to receive(:redirect_to).with(path, notice: nil)
 
           subject
         end
@@ -185,10 +191,13 @@ RSpec.describe SimpleCrudify::CrudActions do
       before { allow_any_instance_of(Model).to receive(:find).and_return(Model.new) }
       before { allow_any_instance_of(Model).to receive(:destroy).and_return(false) }
 
+      before { allow(controller_klass).to receive(:action_name).and_return(:destroy) }
+      before { allow(controller_klass).to receive(:controller_notice).and_return(nil) }
+
       subject { controller_klass.destroy }
 
       it 'destroy resource' do
-        expect(controller_klass).to receive(:redirect_to).with(path)
+        expect(controller_klass).to receive(:redirect_to).with(path, notice: nil)
 
         subject
       end

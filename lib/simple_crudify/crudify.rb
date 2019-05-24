@@ -3,12 +3,12 @@ module SimpleCrudify
     include CommonMethods
 
     DEPENDENCIES_MAP = {
-      index:   CrudActions::Index,
-      show:    CrudActions::Show,
-      new:     CrudActions::New,
-      create:  CrudActions::Create,
-      edit:    CrudActions::Edit,
-      update:  CrudActions::Update,
+      index: CrudActions::Index,
+      show: CrudActions::Show,
+      new: CrudActions::New,
+      create: CrudActions::Create,
+      edit: CrudActions::Edit,
+      update: CrudActions::Update,
       destroy: CrudActions::Destroy
     }.freeze
 
@@ -19,15 +19,15 @@ module SimpleCrudify
     module ClassMethods
       private
 
-        def actions(*action_names)
-          if action_names.include?(:crud)
-            DEPENDENCIES_MAP.values.each { |action| include(action) }
-          else
-            action_names.each do |action|
-              include(DEPENDENCIES_MAP[action])
-            end
+      def actions(*action_names)
+        if action_names.include?(:crud)
+          DEPENDENCIES_MAP.values.each { |action| include(action) }
+        else
+          action_names.each do |action|
+            include(DEPENDENCIES_MAP[action])
           end
         end
+      end
     end
   end
 end

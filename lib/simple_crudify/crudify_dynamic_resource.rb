@@ -10,12 +10,7 @@ module SimpleCrudify
     end
 
     def update
-      if defined?(FriendlyId)
-        @resource = model_klass.friendly.find(params[:id])
-      else
-        @resource = model_klass.find(params[:id])
-      end
-
+      @resource = ResourceHelper.resource(model_klass, params[:id])
       @resource.update(resource_params)
 
       respond_to do |format|
@@ -24,12 +19,7 @@ module SimpleCrudify
     end
 
     def destroy
-      if defined?(FriendlyId)
-        @resource = model_klass.friendly.find(params[:id])
-      else
-        @resource = model_klass.find(params[:id])
-      end
-
+      @resource = ResourceHelper.resource(model_klass, params[:id])
       @resource.destroy
 
       respond_to do |format|
