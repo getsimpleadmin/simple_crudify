@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/getsimpleadmin/simple_crudify.svg?branch=master)](http://travis-ci.org/getsimpleadmin/simple_crudify)[![codecov.io](https://codecov.io/github/getsimpleadmin/simple_crudify/coverage.svg?branch=master)](https://codecov.io/github/getsimpleadmin/simple_crudify?branch=master)[![Gem Version](https://badge.fury.io/rb/simple_crudify.svg)](https://rubygems.org/gems/simple_crudify)
+[![Build Status](https://secure.travis-ci.org/getsimpleadmin/simple_crudify.svg?branch=master)](http://travis-ci.org/getsimpleadmin/simple_crudify)[![Gem Version](https://badge.fury.io/rb/simple_crudify.svg)](https://rubygems.org/gems/simple_crudify)
 # SimpleCrudify
 
 The simple_crudify gem is a lightweight library for writing simple CRUD controllers.
