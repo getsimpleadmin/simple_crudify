@@ -1,5 +1,7 @@
 module SimpleCrudify
   module CrudActions
+    # @since 1.0.0
+    # @api private
     module Index
       def index
         @resources = model_klass.all
@@ -8,6 +10,8 @@ module SimpleCrudify
       end
     end
 
+    # @since 1.0.0
+    # @api private
     module Show
       def show
         @resource = ResourceHelper.resource(model_klass, params[:id])
@@ -16,6 +20,8 @@ module SimpleCrudify
       end
     end
 
+    # @since 1.0.0
+    # @api private
     module New
       def new
         @resource = model_klass.new
@@ -24,6 +30,8 @@ module SimpleCrudify
       end
     end
 
+    # @since 1.0.0
+    # @api private
     module Create
       def create
         @resource = model_klass.new(resource_params)
@@ -36,6 +44,8 @@ module SimpleCrudify
       end
     end
 
+    # @since 1.0.0
+    # @api private
     module Edit
       def edit
         @resource = ResourceHelper.resource(model_klass, params[:id])
@@ -44,6 +54,8 @@ module SimpleCrudify
       end
     end
 
+    # @since 1.0.0
+    # @api private
     module Update
       def update
         @resource = ResourceHelper.resource(model_klass, params[:id])
@@ -56,6 +68,8 @@ module SimpleCrudify
       end
     end
 
+    # @since 1.0.0
+    # @api private
     module Destroy
       def destroy
         @resource = ResourceHelper.resource(model_klass, params[:id])

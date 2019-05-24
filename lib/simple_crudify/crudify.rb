@@ -1,4 +1,7 @@
 module SimpleCrudify
+  # Controller actions mapper, each action placed in different modules
+  #
+  # @since 1.0.0
   module Crudify
     include CommonMethods
 
@@ -16,6 +19,8 @@ module SimpleCrudify
       base.extend(ClassMethods)
     end
 
+    # @since 1.0.0
+    # @api private
     module ClassMethods
       private
 

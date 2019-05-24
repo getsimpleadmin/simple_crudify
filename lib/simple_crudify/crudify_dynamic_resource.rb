@@ -1,4 +1,6 @@
 module SimpleCrudify
+  # @since 1.0.0
+  # @api private
   module CrudifyDynamicResource
     def create
       @resource = model_klass.new(resource_params)
