@@ -33,8 +33,8 @@ class UsersController < ApplicationController
     User
   end
 
-  def controller_notice(_action_name)
-    t("resource.#{action_name}.success", resource_name: model_klass.model_name.element.capitalize)
+  def controller_notice(action_name)
+    t("resource.#{action_name}.success", resource_name: model_klass)
   end
 
   private
@@ -77,8 +77,8 @@ end
 Allow specifying the model class.
 
 ```ruby
-  def controller_notice(_action_name)
-    t("resource.#{action_name}.success", resource_name: model_klass.model_name.element.capitalize)
+  def controller_notice(action_name)
+    t("resource.#{action_name}.success", resource_name: model_klass)
   end
 ```
 
