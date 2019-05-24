@@ -39,21 +39,21 @@ class UsersController < ApplicationController
 
   private
 
-    def after_create_path
-      edit_user_path(@resource)
-    end
+  def after_create_path
+    edit_user_path(@resource)
+  end
 
-    def after_update_path
-      users_path
-    end
+  def after_update_path
+    users_path
+  end
 
-    def after_destroy_path
-      users_path
-    end
+  def after_destroy_path
+    users_path
+  end
 
-    def resource_params
-      params.require(:user).permit(:password, :phone, :email)
-    end
+  def resource_params
+    params.require(:user).permit(:password, :phone, :email)
+  end
 end
 ```
 
